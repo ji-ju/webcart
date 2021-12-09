@@ -1,0 +1,77 @@
+<ng-container *ngIf=" food==0">
+  <div class="container">
+      <div class="card">
+          <h5 class="card-title">My cart</h5>
+      </div>
+      <div class="center">
+          <img src="https://rukminim1.flixcart.com/www/800/800/promos/16/05/2019/d438a32e-765a-4d8b-b4a6-520b560971e8.png?q=90" alt="">
+          <h4>Your cart is Empty</h4>
+          <button class="btn btn-primary" routerLink="/home">Shop now</button>
+      </div>
+  </div>
+</ng-container>
+
+<ng-container *ngIf="food !=0">
+  <div class="container">
+    <div class="table">
+        <div class="card-table">
+          <div class="cart-product">
+              <table class="table table-responsive">
+                  <thead>
+                      <tr>
+                          <th>Sr.No</th>
+                          <th>Name</th>
+                          <th>Image</th>
+                          <th>Tags</th>
+                          <th>origin</th>
+                          <th>price</th>
+                          <th>Quantity</th>
+                          <th>Total</th>
+                          <th>Action</th>
+                      </tr>
+                  </thead>
+                  <tbody>
+                      <tr *ngFor="let i of food; let j=index" >
+                          <td>{{j+1}}</td>
+                          <td>{{i.name}}</td>
+                          <td routerLink="/food/{{i.id}}"><img style="width: 120px;" src="{{i.imageUrl}}" alt=""></td>
+                          <td>{{i.tags}}</td>
+                          <td > 
+                            {{i.origins}}</td>
+                          <td>{{i.price|currency}}</td>
+                          <!--<td>
+                            <select #quan (change)="change(i,quan.value)">
+                              <option>1</option>
+                              <option>2</option>
+                              <option>3</option>
+                              <option>4</option>
+                              <option>5</option>
+                            </select>
+                          </td>-->
+                          <td>
+                            <button (click)="inc(i)" class="quan"><i class="fa fa-plus"></i></button>
+                            <span>{{i.quantity}}</span>
+                            <button (click)="dec(i)" class="quan"><i class="fa fa-minus"></i></button>
+                          </td>
+
+                          <td>{{i.price * i.quantity}}</td>
+                          <td>
+                              <button class="btn btn-danger" (click)="remove(i)"><i class="fas fa-trash-alt"></i></button>
+                          </td>
+                      </tr>
+                      <tr>
+                        <td colspan="6"></td>
+                        <td><button class="btn btn-success">GrandTotal:${{singleTotal}}</button></td>
+                        <td><button style="margin-top: 30;" class="btn btn-success" routerLink="/home" >Shop More</button></td>
+                        
+                      </tr>
+                  </tbody>
+                  
+              </table>
+              
+          </div>
+        </div>
+      </div>
+  </div>
+  
+</ng-container>

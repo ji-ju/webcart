@@ -1,0 +1,104 @@
+<app-header></app-header>
+<div class="container d-flex" >
+    <div class="item" *ngFor="let j of tags | filter:searchKey">
+        
+        <div  (click)="category(j.name)">
+            <h6>{{j.name}}({{j.count}})</h6>
+        </div>
+        
+    </div>
+</div>
+<!--<div style="margin-left: 20px;">
+    <input type="text" [(ngModel)]="searchTerm" (keyup)="search($event)" name="search">
+    <select>
+        <input type="text">
+        <option>Tags</option>
+        <option>stars</option>
+        <option>Origin</option>
+        <option>cook time</option>
+    </select>
+</div>
+<div class="card-top container-fluid">
+    <div class="container d-flex">
+        <div class="item" (click)="category('All')">
+            <h6>All</h6>
+        </div>
+        <div class="item">
+            <a (click)="category('FastFood')">
+                <h6>FastFood ({{filterFood.length}})</h6>
+            </a>
+           
+        </div>
+        <div class="item" (click)="category('Pizza')">
+            <h6>Pizza FastFood ({{filterFood.length}})</h6>
+        </div>
+        <div class="item" (click)="category('Lunch')">
+            <h6>Lunch</h6>
+        </div>
+        <div class="item" (click)="category('SlowFood')">
+            <h6>SlowFood</h6>
+        </div>
+        <div class="item" (click)="category('Hamburger')">
+            <h6>Burger</h6>
+        </div>
+        <div class="item" (click)="category('Fry')">
+            <h6>Fry</h6>
+        </div>
+       routerLink="/food/{{i.id}}"
+    </div>
+</div>-->
+<div class="container">
+    <ul>
+        <li *ngFor="let i of filterFood | filter:searchKey | orderBy:sortKey">
+            <a > <img src="{{i.imageUrl}}" alt="" routerLink="/food/{{i.id}}">
+               <div class="content">
+                <div>{{i.name}}</div>
+             
+                <!-- [routerLink]="[food,i.id]"
+                    
+                    
+                    <div class="favorite {{i.favorite?'':'not'}}">
+                    <i (click)="addToFav(i)" class='far fa-heart float-right'></i>
+                </div> -->
+
+                <!-- <div *ngIf=addedToWishlist>
+                    <i (click)="addToFav(i)" class='fas fa-heart float-right'></i>
+                </div>
+                <div *ngIf=!addedToWishlist>
+                    <i (click)="addToFav(i)" class='far fa-heart float-right'></i>
+                </div> -->
+                <div>
+                    <i [class]="i.onWishlist? 'fas fa-heart' : 'far fa-heart'" (click)="toggle(i)"></i>
+                </div>
+
+                
+
+    
+                <div class="stars">
+                    <star-rating [value]="i.stars" 
+                    [totalstars]="5"
+                    checkedcolor="red" 
+                    uncheckedcolor="black" 
+                    size="18px"
+                    [readonly]="false"></star-rating>
+                </div>
+                <div>{{i.tags}}</div>
+                <div class="footer">
+                    <div class="origins">
+                        <span >
+                            {{i.origins}}
+                       </span>
+                        
+                    </div>
+                         <div class="cook"><span>🕓 {{i.cookTime}}</span> </div>
+                         <div class="price"><span>{{i.price|currency}}</span> </div>
+                        </div>
+                        
+                </div>
+             
+            </a>
+    
+    
+        </li>
+    </ul>
+</div>

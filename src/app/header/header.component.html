@@ -1,0 +1,28 @@
+<nav class="navbar navbar-light bg-primary">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#">Navbar</a>
+      <form class="d-flex">
+        <input class="form-control" type="search" placeholder="Search" [(ngModel)]="searchTerm" (keyup)="search($event)" name="search" aria-label="Search">
+       
+      </form>
+      <div style="margin-left: 20px;">
+        
+        <select #sortTerm (change)="sort(sortTerm.value)" name="sort">
+            Sort By
+            <option>Sort By</option>
+            <option>price</option>
+            <!-- <optgroup  label="Price">
+              <option value="price">Low to High</option>
+              <option value="price">High to low</option>
+            </optgroup> -->
+            <option value="stars">Stars</option>
+            <option value="origin">Origin</option>
+            <option value="cookTime">cook time</option>
+        </select>
+    </div>
+      <button class="btn btn-primary">
+        <i style="font-size: 25px;" class="fas fa-cart-plus"></i>
+        <div style="font-size: 10px;" class="badge bg-danger">9</div>
+    </button>
+    </div>
+  </nav>

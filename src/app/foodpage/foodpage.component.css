@@ -1,0 +1,74 @@
+.item{
+    margin-top: 2rem;
+    width: 20rem;
+    height: 20rem;
+}
+.container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+    margin: 3rem;
+    margin-left: 5rem;
+}
+.container > *{
+    min-width: 25rem;
+    max-width: 30rem;
+    margin-left: 2rem;
+}
+
+img{
+    border-radius: 3rem;
+    flex: 1 0;
+    object-fit: cover;
+    height: 35rem;
+    margin: 1rem;
+}
+.content{
+    margin-top: 1rem;
+    color: blue;
+    font-size: 18px;
+    
+
+}
+.favorite{
+    
+    margin-top: .5rem;
+    color: red;
+    display: flex;
+    justify-content: space-between;
+    font-size: 1.5rem;
+    
+}
+.favorite.not{
+    margin-top: .5rem;
+    color:grey;
+    display: flex;
+    justify-content: space-between;
+    
+    
+}
+.stars{
+    margin-top: .5rem;
+    
+    
+}
+.name{
+    font-size: 1.5rem;
+    font-style: bold;
+    color: black;
+}
+.origins{
+    margin-top: .5rem;
+    font-style: italic;
+    color:chocolate
+}
+.cook{
+    margin-top: .5rem;
+}
+
+.price{
+    margin-top: .5rem;
+    color: black;
+    margin-bottom: .5rem;
+}
